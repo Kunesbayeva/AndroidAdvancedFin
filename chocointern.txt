@@ -1,0 +1,59 @@
+int swapNeighbouringDigitsChocoInternship(int n) {
+    
+    String s = String.valueOf(n);
+    String s1 = "";
+    
+    for(int i = 0; i < s.length(); i += 2) {
+        s1 = s1 + s.charAt(i + 1);
+        s1 = s1 + s.charAt(i);
+    }
+    
+    n = Integer.parseInt(s1);
+    
+    System.out.print(s);
+    
+    return n;
+}
+
+boolean isLuckyNumberChocoInternship(int n) {
+    while(n != 0) {
+        if(n % 10 != 7 && n % 10 != 4) {
+            return false;
+        }
+        n /= 10;
+    }
+    return true;
+}
+
+String longestDigitsPrefixChocoInternship(String n) {
+    String result = "";
+    String[] temp = n.split("\\D");
+    for(int i = 0; i < temp.length; i++) {
+        if(temp[i].length() > result.length()) {
+            result = temp[i];
+        }
+    }
+    return result;
+}
+String removeDuplicateCharactersChocoInternship(String n) {
+    String r = "";
+    int used [] = new int [9999];
+    for(int i=0;i<n.length();i++){
+        boolean have = false;
+        if(used[i]==1){
+            continue;
+        }
+        for(int j=i+1;j<n.length();j++){
+            if(n.charAt(i)==n.charAt(j)){
+                used[j] = 1;
+                have = true;
+            }
+        }
+        if(!have){
+            r+=n.charAt(i);
+        }
+    }
+    
+    
+    return r;
+}
